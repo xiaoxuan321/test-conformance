@@ -31,29 +31,29 @@ flow:
     container: token_based_replay_container
     commands:
       - type: console
-        command: python /app/algorithm.py alpha
+        command: python /app/test_conformance.py token
         note: Running token_based_replay
   - name: Test alignments
     container: alignments_container
     commands:
       - type: console
-        command: python /app/algorithm.py inductive
+        command: python /app/test_conformance.py alignments
         note: Running alignments
   - name: Test footprints
     container: footprints_container
     commands:
       - type: console
-        command: python /app/algorithm.py heuristics
+        command: python /app/test_conformance.py footprints
         note: Running footprints
   - name: Test declare
     container: declare_container
     commands:
       - type: console
-        command: python /app/algorithm.py ilp
+        command: python /app/test_conformance.py declare
         note: Running declare
   - name: Test skeleton
     container: skeleton_container
     commands:
       - type: console
-        command: python /app/algorithm.py ilp
+        command: python /app/test_conformance.py skeleton
         note: Running skeleton
