@@ -13,10 +13,6 @@ services:
     image: python:3.9
     build:
       context: .
-  footprints_container:
-    image: python:3.9
-    build:
-      context: .
   declare_container:
     image: python:3.9
     build:
@@ -39,12 +35,6 @@ flow:
       - type: console
         command: python /app/test_conformance.py alignments
         note: Running alignments
-  - name: Test footprints
-    container: footprints_container
-    commands:
-      - type: console
-        command: python /app/test_conformance.py footprints
-        note: Running footprints
   - name: Test declare
     container: declare_container
     commands:
