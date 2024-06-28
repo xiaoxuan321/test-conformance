@@ -1,0 +1,59 @@
+---
+name: Test-conformance
+author: xiaoxuan
+version: 1
+description: test conformance checking algorithms
+
+services:
+  token_based_replay_container:
+    image: python:3.9
+    build:
+      context: .    # 确保context路径正确，即使Dockerfile在项目的当前目录
+  alignments_container:
+    image: python:3.9
+    build:
+      context: .
+  footprints_container:
+    image: python:3.9
+    build:
+      context: .
+  declare_container:
+    image: python:3.9
+    build:
+      context: .
+  skeleton_container:
+    image: python:3.9
+    build:
+      context: .
+
+flow:
+  - name: Test token based replay
+    container: token_based_replay_container
+    commands:
+      - type: console
+        command: python /app/algorithm.py alpha
+        note: Running token_based_replay
+  - name: Test alignments
+    container: alignments_container
+    commands:
+      - type: console
+        command: python /app/algorithm.py inductive
+        note: Running alignments
+  - name: Test footprints
+    container: footprints_container
+    commands:
+      - type: console
+        command: python /app/algorithm.py heuristics
+        note: Running footprints
+  - name: Test declare
+    container: declare_container
+    commands:
+      - type: console
+        command: python /app/algorithm.py ilp
+        note: Running declare
+  - name: Test skeleton
+    container: skeleton_container
+    commands:
+      - type: console
+        command: python /app/algorithm.py ilp
+        note: Running skeleton
