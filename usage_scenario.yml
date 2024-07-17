@@ -6,19 +6,9 @@ description: test conformance checking algorithms
 
 services:
   token_based_replay_container:
-    image: python:3.9
     build:
       context: .    # 确保context路径正确，即使Dockerfile在项目的当前目录
   alignments_container:
-    image: python:3.9
-    build:
-      context: .
-  declare_container:
-    image: python:3.9
-    build:
-      context: .
-  skeleton_container:
-    image: python:3.9
     build:
       context: .
 
@@ -35,15 +25,3 @@ flow:
       - type: console
         command: python /app/test_conformance.py alignments
         note: Running alignments
-  - name: Test declare
-    container: declare_container
-    commands:
-      - type: console
-        command: python /app/test_conformance.py declare
-        note: Running declare
-  - name: Test skeleton
-    container: skeleton_container
-    commands:
-      - type: console
-        command: python /app/test_conformance.py skeleton
-        note: Running skeleton
