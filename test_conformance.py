@@ -94,15 +94,15 @@ if __name__ == "__main__":
                                                                                          activity_key='concept:name',
                                                                                          case_id_key='case:concept:name',
                                                                                          timestamp_key='time:timestamp')
-            net_inductive_t10, im_inductive_t10, fm_inductive_t10 = pm4py.discover_petri_net_inductive(BPIC17_f,
-                                                                                                 activity_key='concept:name',
-                                                                                                 case_id_key='case:concept:name',
-                                                                                                 timestamp_key='time:timestamp')
-            tbr_diagnostics_inductive = pm4py.conformance_diagnostics_token_based_replay(BPIC17_f, net_inductive_t10,
-                                                                                         im_inductive_t10, fm_inductive_t10,
-                                                                                         activity_key='concept:name',
-                                                                                         case_id_key='case:concept:name',
-                                                                                         timestamp_key='time:timestamp')
+            # net_inductive_t10, im_inductive_t10, fm_inductive_t10 = pm4py.discover_petri_net_inductive(BPIC17_f,
+            #                                                                                      activity_key='concept:name',
+            #                                                                                      case_id_key='case:concept:name',
+            #                                                                                      timestamp_key='time:timestamp')
+            # tbr_diagnostics_inductive = pm4py.conformance_diagnostics_token_based_replay(BPIC17_f, net_inductive_t10,
+            #                                                                              im_inductive_t10, fm_inductive_t10,
+            #                                                                              activity_key='concept:name',
+            #                                                                              case_id_key='case:concept:name',
+            #                                                                              timestamp_key='time:timestamp')
             net_inductive_t11, im_inductive_t11, fm_inductive_t11 = pm4py.discover_petri_net_inductive(RTFMP,
                                                                                                  activity_key='concept:name',
                                                                                                  case_id_key='case:concept:name',
@@ -192,16 +192,16 @@ if __name__ == "__main__":
                                                                                          activity_key='concept:name',
                                                                                          case_id_key='case:concept:name',
                                                                                          timestamp_key='time:timestamp')
-            net_inductive_a10, im_inductive_a10, fm_inductive_a10 = pm4py.discover_petri_net_inductive(BPIC17_f,
-                                                                                                    activity_key='concept:name',
-                                                                                                    case_id_key='case:concept:name',
-                                                                                                    timestamp_key='time:timestamp')
-            tbr_diagnostics_inductive = pm4py.conformance_diagnostics_alignments(BPIC17_f, net_inductive_a10,
-                                                                                         im_inductive_a10,
-                                                                                         fm_inductive_a10,
-                                                                                         activity_key='concept:name',
-                                                                                         case_id_key='case:concept:name',
-                                                                                         timestamp_key='time:timestamp')
+            # net_inductive_a10, im_inductive_a10, fm_inductive_a10 = pm4py.discover_petri_net_inductive(BPIC17_f,
+            #                                                                                         activity_key='concept:name',
+            #                                                                                         case_id_key='case:concept:name',
+            #                                                                                         timestamp_key='time:timestamp')
+            # tbr_diagnostics_inductive = pm4py.conformance_diagnostics_alignments(BPIC17_f, net_inductive_a10,
+            #                                                                              im_inductive_a10,
+            #                                                                              fm_inductive_a10,
+            #                                                                              activity_key='concept:name',
+            #                                                                              case_id_key='case:concept:name',
+            #                                                                              timestamp_key='time:timestamp')
             net_inductive_a11, im_inductive_a11, fm_inductive_a11 = pm4py.discover_petri_net_inductive(RTFMP,
                                                                                                     activity_key='concept:name',
                                                                                                     case_id_key='case:concept:name',
