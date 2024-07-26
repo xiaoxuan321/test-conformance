@@ -1,26 +1,22 @@
 import pm4py
 import sys
 if __name__ == "__main__":
-    BPIC12_output_file = '/app/data/BPIC12.xes'
     BPIC13_cp_output_file = '/app/data/BPIC13_cp.xes'
     BPIC13_i_output_file = '/app/data/BPIC13_i.xes'
     BPIC14_f_output_file = '/app/data/BPIC14_f.xes'
     BPIC15_1f_output_file = '/app/data/BPIC15_1f.xes'
     BPIC15_2f_output_file = '/app/data/BPIC15_2f.xes'
-    BPIC15_3f_output_file = '/app/data/BPIC15_3f.xes'
     BPIC15_4f_output_file = '/app/data/BPIC15_4f.xes'
     BPIC15_5f_output_file = '/app/data/BPIC15_5f.xes'
     BPIC17_f_output_file = '/app/data/BPIC17_f.xes'
     RTFMP_output_file = '/app/data/RTFMP.xes'
     SEPSIS_output_file = '/app/data/SEPSIS.xes'
     # 加载解压后的 .xes 文件
-    BPIC12 = pm4py.read_xes(BPIC12_output_file)
     BPIC13_cp = pm4py.read_xes(BPIC13_cp_output_file)
     BPIC13_i = pm4py.read_xes(BPIC13_i_output_file)
     BPIC14_f = pm4py.read_xes(BPIC14_f_output_file)
     BPIC15_1f = pm4py.read_xes(BPIC15_1f_output_file)
     BPIC15_2f = pm4py.read_xes(BPIC15_2f_output_file)
-    BPIC15_3f = pm4py.read_xes(BPIC15_3f_output_file)
     BPIC15_4f = pm4py.read_xes(BPIC15_4f_output_file)
     BPIC15_5f = pm4py.read_xes(BPIC15_5f_output_file)
     BPIC17_f = pm4py.read_xes(BPIC17_f_output_file)
@@ -34,12 +30,6 @@ if __name__ == "__main__":
         print(f"第一个命令行参数是: {param}")
         if param == "token":
             # 基于Token重演方法的合规性检查
-            net_inductive_t1, im_inductive_t1, fm_inductive_t1 = pm4py.discover_petri_net_inductive(BPIC12, activity_key='concept:name',
-                                                             case_id_key='case:concept:name', timestamp_key='time:timestamp')
-            tbr_diagnostics_inductive = pm4py.conformance_diagnostics_token_based_replay(BPIC12, net_inductive_t1, im_inductive_t1, fm_inductive_t1,
-                                                                               activity_key='concept:name',
-                                                                               case_id_key='case:concept:name',
-                                                                               timestamp_key='time:timestamp')
             net_inductive_t2, im_inductive_t2, fm_inductive_t2 = pm4py.discover_petri_net_inductive(BPIC13_cp,
                                                                                                  activity_key='concept:name',
                                                                                                  case_id_key='case:concept:name',
@@ -85,15 +75,7 @@ if __name__ == "__main__":
                                                                                          activity_key='concept:name',
                                                                                          case_id_key='case:concept:name',
                                                                                          timestamp_key='time:timestamp')
-            net_inductive_t7, im_inductive_t7, fm_inductive_t7 = pm4py.discover_petri_net_inductive(BPIC15_3f,
-                                                                                                 activity_key='concept:name',
-                                                                                                 case_id_key='case:concept:name',
-                                                                                                 timestamp_key='time:timestamp')
-            tbr_diagnostics_inductive = pm4py.conformance_diagnostics_token_based_replay(BPIC15_3f, net_inductive_t7,
-                                                                                         im_inductive_t7, fm_inductive_t7,
-                                                                                         activity_key='concept:name',
-                                                                                         case_id_key='case:concept:name',
-                                                                                         timestamp_key='time:timestamp')
+
             net_inductive_t8, im_inductive_t8, fm_inductive_t8 = pm4py.discover_petri_net_inductive(BPIC15_4f,
                                                                                                  activity_key='concept:name',
                                                                                                  case_id_key='case:concept:name',
@@ -147,15 +129,6 @@ if __name__ == "__main__":
         elif param == "alignments":
             # 基于对齐方法的合规性检查
 
-            net_inductive_a1, im_inductive_a1, fm_inductive_a1 = pm4py.discover_petri_net_inductive(BPIC12,
-                                                                                                 activity_key='concept:name',
-                                                                                                 case_id_key='case:concept:name',
-                                                                                                 timestamp_key='time:timestamp')
-            tbr_diagnostics_inductive = pm4py.conformance_diagnostics_alignments(BPIC12, net_inductive_a1,
-                                                                                         im_inductive_a1, fm_inductive_a1,
-                                                                                         activity_key='concept:name',
-                                                                                         case_id_key='case:concept:name',
-                                                                                         timestamp_key='time:timestamp')
             net_inductive_a2, im_inductive_a2, fm_inductive_a2 = pm4py.discover_petri_net_inductive(BPIC13_cp,
                                                                                                  activity_key='concept:name',
                                                                                                  case_id_key='case:concept:name',
@@ -198,15 +171,6 @@ if __name__ == "__main__":
                                                                                                  timestamp_key='time:timestamp')
             tbr_diagnostics_inductive = pm4py.conformance_diagnostics_alignments(BPIC15_2f, net_inductive_a6,
                                                                                          im_inductive_a6, fm_inductive_a6,
-                                                                                         activity_key='concept:name',
-                                                                                         case_id_key='case:concept:name',
-                                                                                         timestamp_key='time:timestamp')
-            net_inductive_a7, im_inductive_a7, fm_inductive_a7 = pm4py.discover_petri_net_inductive(BPIC15_3f,
-                                                                                                 activity_key='concept:name',
-                                                                                                 case_id_key='case:concept:name',
-                                                                                                 timestamp_key='time:timestamp')
-            tbr_diagnostics_inductive = pm4py.conformance_diagnostics_alignments(BPIC15_3f, net_inductive_a7,
-                                                                                         im_inductive_a7, fm_inductive_a7,
                                                                                          activity_key='concept:name',
                                                                                          case_id_key='case:concept:name',
                                                                                          timestamp_key='time:timestamp')
